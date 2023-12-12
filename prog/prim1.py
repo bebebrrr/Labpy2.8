@@ -45,14 +45,14 @@ def display_workers(staff):
        print(line)
        # Вывести данные о всех сотрудниках.
        for idx, worker in enumerate(staff, 1):
-      print(
-        '| {:>4} | {:<30} | {:<20} | {:>8} |'.format(
-        idx,
-        worker.get('name', ''),
-        worker.get('post', ''),
-        worker.get('year', 0)
-        ))
-    print(line)
+            print('| {:>4} | {:<30} | {:<20} | {:>8} |'.format(
+                idx,
+                worker.get('name', ''),
+                worker.get('post', ''),
+                worker.get('year', 0)
+                )
+            )
+        print(line)
        
     else:
        print("Список работников пуст.")
@@ -65,8 +65,8 @@ def select_workers(staff, period):
     # Получить текущую дату.
     today = date.today()
    # Сформировать список работников.
-   result = []
-   for employee in staff:
+    result = []
+    for employee in staff:
        if today.year - employee.get('year', today.year) >= period:
            result.append(employee)
            
@@ -91,9 +91,9 @@ def main():
            # Запросить данные о работнике.
             worker = get_worker()
            # Добавить словарь в список.
-           workers.append(worker)
+            workers.append(worker)
            # Отсортировать список в случае необходимости.
-           if len(workers) > 1:
+            if len(workers) > 1:
                workers.sort(key=lambda item: item.get('name', ''))
        elif command == 'list':
            # Отобразить всех работников.
